@@ -3,12 +3,12 @@
 open System
 
 let CHUNK_SIZE = 1024
-let ZOOM = 0.05f
-let SEED = 4867
-let SCALE = 0.25f
+let ZOOM = 0.25f
+let SEED = 46584
+let SCALE = 0.15f
 
-let X_OFFSET = 5000
-let Y_OFFSET = 1876
+let X_OFFSET = 0
+let Y_OFFSET = 0
 
 let DOMAIN_WARP_AMP = 10000f
 let MASK_SCALE_OFFSET = 10f
