@@ -1,14 +1,15 @@
 ﻿module ImageGen
 
 open BaseNoise
+open Config
 
 open System.Drawing
 open System.Runtime.Serialization.Formatters.Binary
 open System.Drawing.Imaging
 open System.Runtime.InteropServices
+open BlockMapping
 
 let createPngFromColorArray (filePath: string) (colors: Color[,])  =
-    printfn "Writing Image..."
     let width = colors.GetLength(0)
     let height = colors.GetLength(1)
     
@@ -36,8 +37,8 @@ let createPngFromColorArray (filePath: string) (colors: Color[,])  =
     
     bitmap.Save(filePath, ImageFormat.Png)
 
-let toColors a =
-    match a with
+let toColors (a: BlockInfo )=
+    match a.BlockType with
     | Snow -> Color.White
     | Rock -> Color.SlateGray
     | Shrub -> Color.SpringGreen
@@ -47,6 +48,7 @@ let toColors a =
     | Water -> Color.RoyalBlue
     | DeepWater -> Color.DarkBlue
 
-noiseValues
-|> Array2D.map (toMapping >> toColors)
-|> createPngFromColorArray "../output/fs_map.png"
+let writeImageOfMapToFile values = 
+    log Info "Writing Image"
+    Array2D.map toColors values
+    |> createPngFromColorArray "./fs_map.png"
