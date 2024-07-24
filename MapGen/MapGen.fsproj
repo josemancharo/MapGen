@@ -8,7 +8,6 @@
   <ItemGroup>
     <Compile Include="Config.fs" />
     <Compile Include="BaseNoise.fs" />
-    <Compile Include="PlateTectonics.fs" />
     <Compile Include="Biomes.fs" />
     <Compile Include="BlockMapping.fs" />
     <Compile Include="Chunking.fs" />

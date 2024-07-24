@@ -1,6 +1,5 @@
 ﻿open Config
 open BaseNoise
-open PlateTectonics
 open Biomes
 open BlockMapping
 open Chunking
